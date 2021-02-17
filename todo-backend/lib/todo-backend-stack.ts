@@ -21,7 +21,7 @@ export class TodoBackendStack extends cdk.Stack {
 
     const lambda_function = new lambda.Function (this, 'crudLambda', {
       runtime: lambda.Runtime.NODEJS_12_X,
-      code: lambda.Code.fromAsset('function'),
+      code: lambda.Code.fromAsset('functions'),
       handler: 'main.handler'
     });
 
