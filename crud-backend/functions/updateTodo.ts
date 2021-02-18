@@ -10,11 +10,9 @@ type Params = {
     ReturnValues: string
 }
 
-
 async function updateTodo(todo: any) {
-
     let params: Params = {
-        TableName: process.env.CRUD_TABLE,
+        TableName: process.env.TODOS_TABLE,
         Key: {
             id: todo.id
         },
@@ -35,14 +33,13 @@ async function updateTodo(todo: any) {
         }
     }
 
-    try{
-        await documentClient.update(params).promise();
-        return todo;
-
+    try {
+        await documentClient.update(params).promise()
+        return todo
     } catch (err) {
         console.log('DynamoDB error: ', err)
         return null
     }
 }
 
-export default updateTodo
+export default updateTodo;

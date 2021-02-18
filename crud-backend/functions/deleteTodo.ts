@@ -1,23 +1,20 @@
 const AWS = require('aws-sdk');
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
-async function deleteTodo(todoId: String){
-
+async function deleteTodo(todoId: string) {
     const params = {
-        TableName: process.env.CRUD_TABLE || '',
-
+        TableName: process.env.TODOS_TABLE,
         Key: {
             id: todoId
         }
     }
-
-    try{
+    try {
         await documentClient.delete(params).promise()
         return todoId
-    }
-    catch(error){
-        return error
+    } catch (err) {
+        console.log('DynamoDB error: ', err)
+        return null
     }
 }
 
-export default deleteTodo
+export default deleteTodo;

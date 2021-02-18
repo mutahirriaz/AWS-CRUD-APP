@@ -1,8 +1,8 @@
 {
-  "name": "todo-backend",
+  "name": "crud-backend",
   "version": "0.1.0",
   "bin": {
-    "todo-backend": "bin/todo-backend.js"
+    "crud-backend": "bin/crud-backend.js"
   },
   "scripts": {
     "build": "tsc",
@@ -21,11 +21,10 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "@aws-cdk/aws-appsync": "^1.89.0",
-    "@aws-cdk/aws-dynamodb": "^1.89.0",
-    "@aws-cdk/aws-lambda": "^1.89.0",
+    "@aws-cdk/aws-appsync": "^1.90.0",
+    "@aws-cdk/aws-dynamodb": "^1.90.0",
+    "@aws-cdk/aws-lambda": "^1.90.0",
     "@aws-cdk/core": "1.87.1",
-    "aws-sdk": "^2.845.0",
     "source-map-support": "^0.5.16"
   }
 }

@@ -1,26 +1,29 @@
-import addTodos from './addTodos';
-import getTodos from './getTodos';
+import addTodo from './addTodo';
 import deleteTodo from './deleteTodo';
+import getTodos from './getTodos';
 import updateTodo from './updateTodo';
+
+
 import Todo from './Todo';
 
 type AppSyncEvent = {
-    info:{
-        fieldName: String
+    info: {
+        fieldName: string
     },
     arguments: {
-        todoId: String
+        todoId: string,
         todo: Todo
     }
 }
 
-exports.handler = async (event:AppSyncEvent) => {
-    switch(event.info.fieldName){
+exports.handler = async (event: AppSyncEvent) => {
+    switch (event.info.fieldName) {
+
         case "addTodo":
-            return await addTodos(event.arguments.todo);
+            return await addTodo(event.arguments.todo);
         case "getTodos":
-            return await getTodos
-        case "deleteTodo": 
+            return await getTodos();
+        case "deleteTodo":
             return await deleteTodo(event.arguments.todoId);
         case "updateTodo":
             return await updateTodo(event.arguments.todo);
